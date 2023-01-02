@@ -1,0 +1,8 @@
+playerback0:104:24:8:8
+playerback1:112:24:8:8
+playerback2:120:24:8:8
+
+playerrightwalk0:48:24:8:8
+playerrightwalk1:56:24:8:8
+playerrightwalk2:64:24:8:8
+playerrightwalk3:72:24:8:8
