@@ -10,7 +10,7 @@ SetErrorMode(2)
 #include "gamestate.agc"
 #include "player.agc"
 
-global GameState as TGameState
+global MainGameState as TGameState
 
 // set window properties
 SetWindowTitle( "TBJ4" )
@@ -26,15 +26,16 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 
 LoadResources()
 
-GameStateInit(GameState)
+GameStateInit(MainGameState)
 //InitPlayer(Player)
 
 
 do
     //Print( ScreenFPS() )
-    GameStateUpdate(GameState)
-    DrawBox(GameState.GameArea.PosX, GameState.GameArea.PosY, GameState.GameArea.PosX + GameState.GameArea.Width,
-    GameState.GameArea.PosX + GameState.GameArea.Height,
+    TimeSlice# = GetFrameTime()
+    GameStateUpdate(MainGameState, TimeSlice#)
+    DrawBox(MainGameState.GameArea.PosX, MainGameState.GameArea.PosY, MainGameState.GameArea.PosX + MainGameState.GameArea.Width,
+    MainGameState.GameArea.PosX + MainGameState.GameArea.Height,
     MakeColor(155, 80, 60), MakeColor(155, 80, 60), MakeColor(155, 80, 60), MakeColor(155, 80, 60),
         0)
     Sync()

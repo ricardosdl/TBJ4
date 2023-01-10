@@ -7,8 +7,14 @@
 #constant PLAYER_RIGHT_WALK_ANIMATION_END_FRAME 3
 #constant PLAYER_RIGHT_WALK_ANIMATION_NAME "playerrightwalk"
 
+#constant GROUND_TILE_SAND_NAME "graoundtilesand"
+#constant GROUND_TILE_SAND_END_FRAME 1
+
 global PLAYER_BACK_ANIMATION as integer[PLAYER_BACK_ANIMATION_END_FRAME]
 global PLAYER_RIGHT_WALK_ANIMATION as integer[PLAYER_RIGHT_WALK_ANIMATION_END_FRAME]
+
+global GROUND_TILE_SAND_0 as integer
+global GROUND_TILE_SAND_1 as integer
 
 function LoadPlayerAnimations()
     for i = 0 to PLAYER_BACK_ANIMATION_END_FRAME
@@ -21,6 +27,12 @@ function LoadPlayerAnimations()
         
         
 endfunction
+
+function LoadGroundTiles()
+    GROUND_TILE_SAND_0 = LoadSubImage(SPRITE_SHEET_IMAGE_ID, GROUND_TILE_SAND_NAME + "0")
+    GROUND_TILE_SAND_1 = LoadSubImage(SPRITE_SHEET_IMAGE_ID, GROUND_TILE_SAND_NAME + "1")
+endfunction
+    
     
 
 function LoadResources()
@@ -28,6 +40,8 @@ function LoadResources()
     SetImageMagFilter(SPRITE_SHEET_IMAGE_ID, 0)
     
     LoadPlayerAnimations()
+    
+    LoadGroundTiles()
     
     
 endfunction

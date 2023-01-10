@@ -13,9 +13,12 @@ type TGameState
 endtype
 
 function GameStateInitGameArea(GameArea ref as TGameArea)
-    GameAreaInit(GameState.GameArea, 0, 0)
+    GameAreaInit(GameArea, 0, 0)
     
-    GameState.GameArea.PosX = (GetVirtualWidth() - GameState.GameArea.Width) / 2
+    GameAreaSetPosition(GameArea, (GetVirtualWidth() - GameArea.Width) / 2, GameArea.PosY)
+    
+    //GameArea.PosX = (GetVirtualWidth() - GameArea.Width) / 2
+    
 endfunction
 
 function GameStateInitPlayer(GameState ref as TGameState, Player ref as TPlayer, GameArea ref as TGameArea)
@@ -45,8 +48,9 @@ function GameStateInit(GameState ref as TGameState)
     GameStateInitPlayer(GameState, GameState.Player, GameState.GameArea)
 endfunction
 
-function GameStateUpdate(GameState ref as TGameState)
+function GameStateUpdate(GameState ref as TGameState, TimeSlice as float)
     PlayerUpdate(GameState.Player)
+    GameAreaUpdate(GameState.GameArea, TimeSlice)
 endfunction
 
 
