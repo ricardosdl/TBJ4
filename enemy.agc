@@ -9,6 +9,8 @@ type TEnemy
     Sprite as integer
     EnemyType as integer
     
+    ScrollVelocityY as float
+    
     State as integer
     
     WakeUpTimer as float
@@ -56,6 +58,9 @@ endfunction
     
 
 function EnemyUpdate(Enemy ref as TEnemy, TimeSlice as float)
+    
+    inc Enemy.PosY, Enemy.ScrollVelocityY * TimeSlice
+    
     SetSpritePosition(Enemy.Sprite, Enemy.PosX, Enemy.PosY)
     
     select Enemy.EnemyType

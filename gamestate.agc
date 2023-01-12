@@ -52,6 +52,8 @@ function GameStateInitEnemies(GameState ref as TGameState)
     
     EnemySetPosition(Enemy, EnemyPosX, 10)
     
+    Enemy.ScrollVelocityY = GameState.GameArea.ScrollVelocityY
+    
     GameState.Enemies.insert(Enemy)
 endfunction
     
@@ -65,8 +67,9 @@ function GameStateInit(GameState ref as TGameState)
 endfunction
 
 function GameStateUpdate(GameState ref as TGameState, TimeSlice as float)
-    PlayerUpdate(GameState.Player)
     GameAreaUpdate(GameState.GameArea, TimeSlice)
+    PlayerUpdate(GameState.Player)
+    EnemyEnemiesUpdate(GameState.Enemies, TimeSlice)
 endfunction
 
 
