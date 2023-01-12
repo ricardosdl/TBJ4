@@ -9,3 +9,7 @@ playerrightwalk3:72:24:8:8
 
 graoundtilesand0:32:0:8:8
 graoundtilesand1:40:0:8:8
+
+snailenemy0:88:16:8:8
+snailenemy1:96:16:8:8
+snailenemy2:104:16:8:8

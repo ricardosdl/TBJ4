@@ -7,11 +7,17 @@
 #constant PLAYER_RIGHT_WALK_ANIMATION_END_FRAME 3
 #constant PLAYER_RIGHT_WALK_ANIMATION_NAME "playerrightwalk"
 
+#constant ENEMY_SNAIL_ANIMATION_END_FRAME 2
+#constant ENEMY_SNAIL_ANIMATION_NAME "snailenemy"
+
 #constant GROUND_TILE_SAND_NAME "graoundtilesand"
 #constant GROUND_TILE_SAND_END_FRAME 1
 
 global PLAYER_BACK_ANIMATION as integer[PLAYER_BACK_ANIMATION_END_FRAME]
 global PLAYER_RIGHT_WALK_ANIMATION as integer[PLAYER_RIGHT_WALK_ANIMATION_END_FRAME]
+
+global ENEMY_SNAIL_ANIMATION as integer[ENEMY_SNAIL_ANIMATION_END_FRAME]
+
 
 global GROUND_TILE_SAND_0 as integer
 global GROUND_TILE_SAND_1 as integer
@@ -32,7 +38,19 @@ function LoadGroundTiles()
     GROUND_TILE_SAND_0 = LoadSubImage(SPRITE_SHEET_IMAGE_ID, GROUND_TILE_SAND_NAME + "0")
     GROUND_TILE_SAND_1 = LoadSubImage(SPRITE_SHEET_IMAGE_ID, GROUND_TILE_SAND_NAME + "1")
 endfunction
+
+function LoadSnailAnimations()
+    for i = 0 to ENEMY_SNAIL_ANIMATION_END_FRAME
+        ENEMY_SNAIL_ANIMATION[i] = LoadSubImage(SPRITE_SHEET_IMAGE_ID, ENEMY_SNAIL_ANIMATION_NAME + Str(i))
+        Log("enemy_snail_animation:" + Str(ENEMY_SNAIL_ANIMATION[i]))
+    next
+        
+endfunction
     
+    
+function LoadEnemyAnimations()
+    LoadSnailAnimations()
+endfunction
     
 
 function LoadResources()
@@ -40,6 +58,8 @@ function LoadResources()
     SetImageMagFilter(SPRITE_SHEET_IMAGE_ID, 0)
     
     LoadPlayerAnimations()
+    
+    LoadEnemyAnimations()
     
     LoadGroundTiles()
     

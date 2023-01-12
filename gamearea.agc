@@ -1,4 +1,6 @@
 
+#constant GAME_AREA_SCROLL_VELOCITY_Y 5
+
 #constant GAME_AREA_WIDTH_RATIO 0.5
 #constant GAME_AREA_HEIGHT_RATIO 1.0
 
@@ -78,7 +80,7 @@ function GameAreaInit(GameArea ref as TGameArea, PosX as float, PosY as float)
     GameArea.Width = GetVirtualWidth() * GAME_AREA_WIDTH_RATIO
     GameArea.Height = GetVirtualHeight() * GAME_AREA_HEIGHT_RATIO
     
-    GameArea.ScrollVelocityY = 10
+    GameArea.ScrollVelocityY = GAME_AREA_SCROLL_VELOCITY_Y
     
     GameAreaInitGround(GameArea, GameArea.Ground)
     
@@ -145,7 +147,7 @@ function GameAreaUpdateGround(GameArea ref as TGameArea, TimeSlice as float)
         next y
     next x
     
-    Log("size RepositionatedGroudTiles:" + str(RepositionatedGroudTiles.length))
+    //~ Log("size RepositionatedGroudTiles:" + str(RepositionatedGroudTiles.length))
     
     for i = 0 to RepositionatedGroudTiles.length
         IdxTile = RepositionatedGroudTiles[i]
