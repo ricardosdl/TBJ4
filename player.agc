@@ -30,7 +30,25 @@ function PlayerInit(Player ref as TPlayer)
     
 endfunction
 
-function PlayerUpdate(Player ref as TPlayer)
+function PlayerUpdate(Player ref as TPlayer, TimeSlice as float)
+    if GetRawKeyState(KEY_LEFT)
+        dec Player.PosX, 16 * TimeSlice
+    endif
+    
+    if GetRawKeyState(KEY_RIGHT)
+        inc Player.PosX, 16 * TimeSlice
+    endif
+    
+    if GetRawKeyState(KEY_UP)
+        dec Player.PosY, 16 * TimeSlice
+    endif
+    
+    if GetRawKeyState(KEY_DOWN)
+        inc Player.PosY, 16 * TimeSlice
+    endif
+        
+        
+        
     SetSpritePosition(PLayer.Sprite, Player.PosX, Player.PosY)
 endfunction
     

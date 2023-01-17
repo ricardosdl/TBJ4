@@ -56,16 +56,18 @@ FILE_4=gamearea.agc;-1
 FILE_5=gamestate.agc;-1
 FILE_6=constants.agc;-1
 FILE_7=enemy.agc;-1
+FILE_8=Util.agc;-1
 
 [files]
-FILE_NAME_0=0;main.agc;928;6
-FILE_NAME_1=0;player.agc;472;7
-FILE_NAME_2=0;resources.agc;1123;8
-FILE_NAME_3=0;media%2Ftbj4_compilation_sf%20subimages.txt;312;9
-FILE_NAME_4=0;gamearea.agc;2231;10
-FILE_NAME_5=0;gamestate.agc;1356;11
-FILE_NAME_6=0;constants.agc;128;12
-FILE_NAME_7=1;enemy.agc;0;13
+FILE_NAME_0=0;main.agc;864;0
+FILE_NAME_1=0;player.agc;1379;1
+FILE_NAME_2=0;resources.agc;1734;2
+FILE_NAME_3=0;media%2Ftbj4_compilation_sf%20subimages.txt;300;3
+FILE_NAME_4=0;gamearea.agc;2299;4
+FILE_NAME_5=0;gamestate.agc;1902;5
+FILE_NAME_6=0;constants.agc;3768;6
+FILE_NAME_7=1;enemy.agc;1905;7
+FILE_NAME_8=0;Util.agc;152;8
 
 [project]
 description=

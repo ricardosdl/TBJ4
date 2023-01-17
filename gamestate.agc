@@ -68,8 +68,8 @@ endfunction
 
 function GameStateUpdate(GameState ref as TGameState, TimeSlice as float)
     GameAreaUpdate(GameState.GameArea, TimeSlice)
-    PlayerUpdate(GameState.Player)
-    EnemyEnemiesUpdate(GameState.Enemies, TimeSlice)
+    PlayerUpdate(GameState.Player, TimeSlice)
+    EnemyEnemiesUpdate(GameState.Enemies, GameState.Player, TimeSlice)
 endfunction
 
 
