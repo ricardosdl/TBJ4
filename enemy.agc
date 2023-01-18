@@ -50,6 +50,8 @@ function EnemySnailInit(Snail ref as TEnemy, PosX as float, PosY as float)
 
     EnemySetPosition(Snail, PosX, PosY)
     
+    Snail.Active = TRUE
+    
     Snail.VelX = 0.0
     Snail.VelY = 0.0
     
@@ -151,7 +153,10 @@ endfunction
 function EnemyEnemiesUpdate(Enemies ref as TEnemy[], Player ref as TPlayer, TimeSlice as float)
     i as integer
     for i = 0 to Enemies.length
-        EnemyUpdate(Enemies[i], Player, TimeSlice)
+        if Enemies[i].Active
+            EnemyUpdate(Enemies[i], Player, TimeSlice)
+            Enemies[i].Active = GetSpriteInScreen(Enemies[i].Sprite)
+        endif
     next
 endfunction
     

@@ -4,6 +4,9 @@
 #constant RESOLUTION_WIDTH 256
 #constant RESOLUTION_HEIGHT 144
 
+#constant TRUE 1
+#constant FALSE 0
+
 
 #constant    KEY_BACK         8
 #constant    KEY_TAB          9
