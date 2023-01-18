@@ -99,7 +99,6 @@ function EnemySnailUpdate(Snail ref as TEnemy, Player ref as TPlayer, TimeSlice 
     if Snail.CurrentState = ENEMY_STATE_IDLE
         DistanceToPlayer as float
         DistanceToPlayer = GetSpriteDistance(Snail.Sprite, Player.Sprite)
-        Log("distance:" + Str(DistanceToPlayer))
         
         SnailWidth as float
         SnailWidth = GetSpriteWidth(Snail.Sprite)
@@ -117,6 +116,14 @@ function EnemySnailUpdate(Snail ref as TEnemy, Player ref as TPlayer, TimeSlice 
             
             Snail.VelX = 20 * Cos(Angle)
             Snail.VelY = 20 * Sin(Angle)
+            
+            SnailCenterX as float
+            SnailCenterX = Snail.PosX + GetSpriteWidth(Snail.Sprite) / 2
+            
+            PlayerCenterX as float
+            PlayerCenterX = Player.PosX + GetSpriteWidth(Player.Sprite) / 2
+            
+            SetSpriteFlip(Snail.Sprite, SnailCenterX > PlayerCenterX, 0)
             
             exitfunction
             
