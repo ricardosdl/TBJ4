@@ -172,6 +172,7 @@ function EnemyEnemiesUpdate(Enemies ref as TEnemy[], Player ref as TPlayer, Time
     for i = 0 to Enemies.length
         if Enemies[i].Active
             EnemyUpdate(Enemies[i], Player, TimeSlice)
+            //TODO: the enemy should go inactive only when below the visible screen
             Enemies[i].Active = GetSpriteInScreen(Enemies[i].Sprite)
         endif
     next
