@@ -27,6 +27,8 @@ function GameStateInitPlayer(GameState ref as TGameState, Player ref as TPlayer,
     
     PlayerInit(Player)
     
+    Player.ScrollVelocityY = GameState.GameArea.ScrollVelocityY
+    
     PlayerWidth as float
     PlayerWidth = GetSpriteWidth(Player.Sprite)
     
@@ -43,18 +45,17 @@ function GameStateInitPlayer(GameState ref as TGameState, Player ref as TPlayer,
 endfunction
 
 function GameStateInitEnemies(GameState ref as TGameState)
-    Enemy as TEnemy
+    IdxInactiveEnemy as integer
+    IdxInactiveEnemy = EnemyGetIdxInactiveEnemy(GameState.Enemies)
     
-    EnemyInit(Enemy, ENEMY_TYPE_SNAIL, 0, 0)
+    EnemyInit(GameState.Enemies[IdxInactiveEnemy], ENEMY_TYPE_SNAIL, 0, 0)
     
     EnemyPosX as float
-    EnemyPosX = Random(GameState.GameArea.PosX, GameState.GameArea.PosX + GameState.GameArea.Width - GetSpriteWidth(Enemy.Sprite))
+    EnemyPosX = Random(GameState.GameArea.PosX, GameState.GameArea.PosX + GameState.GameArea.Width - GetSpriteWidth(GameState.Enemies[IdxInactiveEnemy].Sprite))
     
-    EnemySetPosition(Enemy, EnemyPosX, 10)
+    EnemySetPosition(GameState.Enemies[IdxInactiveEnemy], EnemyPosX, 10)
     
-    Enemy.ScrollVelocityY = GameState.GameArea.ScrollVelocityY
-    
-    GameState.Enemies.insert(Enemy)
+    GameState.Enemies[IdxInactiveEnemy].ScrollVelocityY = GameState.GameArea.ScrollVelocityY
 endfunction
     
 
@@ -66,9 +67,43 @@ function GameStateInit(GameState ref as TGameState)
     GameStateInitEnemies(GameState)
 endfunction
 
+function GameStateCheckPlayerBoundaries(GameState ref as TGameState)
+    GameArea as TGameArea
+    GameArea = GameState.GameArea
+    
+    Player as TPlayer
+    Player = GameState.Player
+    
+    //check x axis
+    if Player.PosX < GameArea.PosX
+        GameState.Player.PosX = GameArea.PosX
+    endif
+    
+    if Player.PosX + GetSpriteWidth(Player.Sprite) > GameArea.PosX + GameArea.Width
+        GameState.Player.PosX = (GameArea.PosX + GameArea.Width) - GetSpriteWidth(Player.Sprite)
+    endif
+    
+    //check y axis
+    if Player.PosY < GameArea.PosY
+        GameState.Player.PosY = GameArea.PosY
+    endif
+    
+    if Player.PosY + GetSpriteHeight(Player.Sprite) > GameArea.PosY + GameArea.Height
+        GameState.Player.PosY = (GameArea.PosY + GameArea.Height) - GetSpriteHeight(Player.Sprite)
+    endif
+    
+        
+        
+        
+    
+endfunction
+
 function GameStateUpdate(GameState ref as TGameState, TimeSlice as float)
     GameAreaUpdate(GameState.GameArea, TimeSlice)
     PlayerUpdate(GameState.Player, TimeSlice)
+    
+    GameStateCheckPlayerBoundaries(GameState)
+    
     EnemyEnemiesUpdate(GameState.Enemies, GameState.Player, TimeSlice)
 endfunction
 

@@ -6,6 +6,8 @@ type TPlayer
     PosY as float
     Sprite as integer
     
+    ScrollVelocityY as float
+    
     
     
 endtype
@@ -31,6 +33,10 @@ function PlayerInit(Player ref as TPlayer)
 endfunction
 
 function PlayerUpdate(Player ref as TPlayer, TimeSlice as float)
+    
+    inc Player.PosY, Player.ScrollVelocityY * TimeSlice
+    
+    
     if GetRawKeyState(KEY_LEFT)
         dec Player.PosX, 16 * TimeSlice
     endif

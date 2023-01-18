@@ -32,6 +32,23 @@ type TEnemy
     
 endtype
 
+function EnemyGetIdxInactiveEnemy(Enemies ref as TEnemy[])
+    i as integer
+    for i = 0 to Enemies.length
+        if Not Enemies[i].Active
+            exitfunction i
+        endif
+    next
+    
+    NewEnemy as TEnemy
+    
+    Enemies.insert(NewEnemy)
+    
+    i = Enemies.length
+    
+        
+endfunction i
+
 function EnemySetPosition(Enemy ref as TEnemy, PosX as float, PosY as float)
     Enemy.PosX = PosX
     Enemy.PosY = PosY
