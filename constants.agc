@@ -25,7 +25,7 @@
 #constant    KEY_DOWN         40
 #constant    KEY_INSERT       45
 #constant    KEY_DELETE       46
-#constant    KEY_0            48 (triggered by both top row number keys and numpad keys)
+#constant    KEY_0            48 //(triggered by both top row number keys and numpad keys)
 #constant    KEY_1            49
 #constant    KEY_2            50
 #constant    KEY_3            51
@@ -109,8 +109,8 @@
 #constant    KEU_LEFT_BRACKET                219
 #constant    KEY_BACK_SLASH                220
 #constant    KEY_CLOSE_BRACKET                221
-//~ #constant    #                222
-#constant    `                223
+#constant    KEY_SHARP                222
+#constant    KEY_BACK_QUOTE                223
 #constant    KEY_LEFT_SHIFT   257
 #constant    KEY_RIGHT_SHIFT  258
 #constant    KEY_LEFT_CTRL    259
