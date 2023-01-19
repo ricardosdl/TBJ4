@@ -63,9 +63,9 @@ FILE_NAME_1=0;player.agc;1108;1
 FILE_NAME_2=0;resources.agc;1123;2
 FILE_NAME_3=0;media%2Ftbj4_compilation_sf%20subimages.txt;312;3
 FILE_NAME_4=0;gamearea.agc;2231;4
-FILE_NAME_5=0;gamestate.agc;2817;5
+FILE_NAME_5=1;gamestate.agc;2817;5
 FILE_NAME_6=0;constants.agc;161;6
-FILE_NAME_7=1;enemy.agc;3307;7
+FILE_NAME_7=0;enemy.agc;4722;7
 
 [project]
 description=

@@ -130,7 +130,7 @@ function GameStateUpdate(GameState ref as TGameState, TimeSlice as float)
     
     GameStateCheckPlayerBoundaries(GameState)
     
-    EnemyEnemiesUpdate(GameState.Enemies, GameState.Player, TimeSlice)
+    EnemyEnemiesUpdate(GameState.Enemies, GameState.GameArea, GameState.Player, TimeSlice)
     
     GameStateCheckEnemiesBoundaries(GameState)
     
